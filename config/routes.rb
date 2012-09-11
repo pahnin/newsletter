@@ -1,4 +1,6 @@
 Newsletter::Application.routes.draw do
+  resources :drafts
+
   devise_for :users
 
   resources :lists

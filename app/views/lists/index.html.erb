@@ -1,12 +1,12 @@
-<h1>Listing lists</h1>
+<h3>List of emails</h3>
 
-<table>
+<table width='600px'>
   <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th width='25%'>Name</th>
+    <th width='35%'>Email</th>
+    <th width='10%'></th>
+    <th width='10%'></th>
+    <th width='10%'></th>
   </tr>
 
 <% @lists.each do |list| %>
@@ -15,11 +15,11 @@
     <td><%= list.email %></td>
     <td><%= link_to 'Show', list %></td>
     <td><%= link_to 'Edit', edit_list_path(list) %></td>
-    <td><%= link_to 'Destroy', list, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', list, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New List', new_list_path %>
+<%= link_to 'Add email', new_list_path %>

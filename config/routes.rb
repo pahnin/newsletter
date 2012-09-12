@@ -1,5 +1,9 @@
 Newsletter::Application.routes.draw do
-  resources :drafts
+  resources :drafts do
+    member do
+      get 'activate'
+    end
+  end
 
   devise_for :users
 

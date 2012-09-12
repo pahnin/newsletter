@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  date: 2012-09-11
   draft: MyText
+  use: false
 
 two:
-  date: 2012-09-11
   draft: MyText
+  use: false

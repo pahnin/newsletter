@@ -41,10 +41,10 @@ class DraftsController < ApplicationController
   # POST /drafts.json
   def create
     @draft = Draft.new(params[:draft])
-
+    deactivate_all_active if params[:draft][:use].to_i.nonzero?#==1
     respond_to do |format|
       if @draft.save
-        format.html { redirect_to @draft, :notice => 'Draft was successfully created.' }
+        format.html { redirect_to drafts_path, :notice => 'Draft was successfully created.' }
         format.json { render :json => @draft, :status => :created, :location => @draft }
       else
         format.html { render :action => "new" }
@@ -57,10 +57,10 @@ class DraftsController < ApplicationController
   # PUT /drafts/1.json
   def update
     @draft = Draft.find(params[:id])
-
+    deactivate_all_active if params[:draft][:use].to_i.nonzero?#==1
     respond_to do |format|
-      if @draft.update_attributes(params[:draft])
-        format.html { redirect_to @draft, :notice => 'Draft was successfully updated.' }
+      if @draft.update_attributes(params[:draft]) 
+        format.html { redirect_to drafts_path, :notice => 'Draft was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -78,6 +78,29 @@ class DraftsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to drafts_url }
       format.json { head :no_content }
+    end
+  end
+  
+  def activate
+    @draft = Draft.find(params[:id])
+    deactivate_all_active
+    @draft.use=true
+    respond_to do |format|
+      if @draft.save 
+        format.html { redirect_to drafts_path, :notice => 'Draft was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render :action => "edit" }
+        format.json { render :json => @draft.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+private
+  def deactivate_all_active
+    Draft.find_all_by_use(true).each do |draft|
+      draft.use=false
+      draft.save
     end
   end
 end

@@ -1,13 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Date:</b>
-  <%= @draft.date %>
+  <b>Draft:</b>
+  <%= @draft.draft %>
 </p>
 
 <p>
-  <b>Draft:</b>
-  <%= @draft.draft %>
+  <b>Status:</b>
+  <% if @draft.use %>
+    <font style="color:green">active</font>
+  <% else %>
+    <font style="color:red">inactive</font>
+  <% end %>
 </p>
 
 

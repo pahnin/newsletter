@@ -10,10 +10,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120911165500) do
+ActiveRecord::Schema.define(:version => 20120911171946) do
 
   create_table "drafts", :force => true do |t|
-    t.date     "date"
     t.text     "draft"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

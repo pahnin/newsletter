@@ -1,3 +1,3 @@
 class Draft < ActiveRecord::Base
-  attr_accessible :date, :draft
+  attr_accessible :draft, :use
 end

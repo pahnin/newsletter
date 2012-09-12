@@ -12,12 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
+    <%= f.label :draft %><br />
+    <%= f.text_area :draft, :rows => 40, :cols => 120 %>
+<script type="text/javascript">
+  tinyMCE.init({
+    mode: 'textareas',
+    theme: 'advanced'
+  });
+</script>
   </div>
   <div class="field">
-    <%= f.label :draft %><br />
-    <%= f.text_area :draft %>
+    <%= f.label "Use this" %><br />
+    <%= f.check_box :use %>
   </div>
   <div class="actions">
     <%= f.submit %>

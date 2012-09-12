@@ -8,14 +8,25 @@
 </head>
 <body>
 <div class='content'>
+  <div class='topbar'>
+
   <% if user_signed_in? %>
-    <p class='user'>Signed in as <%= current_user.email %> | <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></p>
+    <div class='menu'>
+      <ul>
+        <li><a href='/lists'>Email list</a></li>
+        <li><a href='/drafts'>Drafts</a></li>
+      </ul>
+    </div>
+    <p class='user'>Signed in as <%= current_user.email %> | <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></p></div>
     <%= yield %>
   <% elsif request.path=="/users/sign_in" %>
+    </div>
     <%= yield %>
   <% elsif request.path=="/users/sign_up" %>
+     </div>
     <%= yield %>
   <% else %>
+    </div>
     You must <%= link_to "Sign in to continue.", new_user_session_path%>
   <% end %>
 </div>

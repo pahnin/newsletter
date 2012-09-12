@@ -18,7 +18,7 @@ class DraftsControllerTest < ActionController::TestCase
 
   test "should create draft" do
     assert_difference('Draft.count') do
-      post :create, :draft => { :date => @draft.date, :draft => @draft.draft }
+      post :create, :draft => { :draft => @draft.draft, :use => @draft.use }
     end
 
     assert_redirected_to draft_path(assigns(:draft))
@@ -35,7 +35,7 @@ class DraftsControllerTest < ActionController::TestCase
   end
 
   test "should update draft" do
-    put :update, :id => @draft, :draft => { :date => @draft.date, :draft => @draft.draft }
+    put :update, :id => @draft, :draft => { :draft => @draft.draft, :use => @draft.use }
     assert_redirected_to draft_path(assigns(:draft))
   end
 

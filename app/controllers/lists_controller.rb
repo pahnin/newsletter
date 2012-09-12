@@ -44,7 +44,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
-        format.html { redirect_to @list, :notice => 'Email was added.' }
+        format.html { redirect_to lists_path, :notice => 'Email was added.' }
         format.json { render :json => @list, :status => :created, :location => @list }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.update_attributes(params[:list])
-        format.html { redirect_to @list, :notice => 'Email updated.' }
+        format.html { redirect_to lists_path, :notice => 'Email updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

@@ -7,6 +7,8 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 
+gem 'whenever', :git => 'https://github.com/javan/whenever.git'
+
 gem 'devise','2.1.2'
 
 gem 'json'

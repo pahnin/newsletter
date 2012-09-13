@@ -18,10 +18,9 @@ Newsletter::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address => 'mail.google.com',
-    :domain  => 'phanindras.com',
-    :port      => 443,
-    :user_name => 'pahninsd@gmail.com',
-    :password => '(iknow*)',
+    :port      => 547,
+    :user_name => '',
+    :password => '',
     :authentication => :plain
   }
 
